@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame"
+    android:id="@+id/containerMain">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"
+        android:id="@+id/textView"
+        android:text="@string/title"
+        android:textSize="@dimen/abc_text_size_display_2_material"
+        />
+
+    <ImageButton
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:id="@+id/but1"
+        android:background="@drawable/plus"
+        android:layout_gravity="right"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/title1"
+        android:text="@string/calif"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc1"
+        android:text="@string/califDesc"
+        />
+
+    <ImageButton
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:id="@+id/but2"
+        android:background="@drawable/plus"
+        android:layout_gravity="right"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/title2"
+        android:text="@string/got"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc2"
+        android:text="@string/gotDesc"
+        />
+
+    <ImageButton
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:id="@+id/but3"
+        android:background="@drawable/plus"
+        android:layout_gravity="right"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/title3"
+        android:text="@string/bb"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc3"
+        android:text="@string/bbDesc"
+        />
+
+</LinearLayout>

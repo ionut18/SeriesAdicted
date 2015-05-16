@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">SeriesAdicted</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="calif">Californication \n</string>
+    <string name="title">Populars</string>
+    <string name="califDesc">A self-loathing, alcoholic writer attempts to repair his damaged relationships with his daughter and her mother while combating sex addiction, a budding drug problem, and the seeming inability to avoid making bad decisions.</string>
+    <string name="got">Game of Thrones</string>
+    <string name="gotDesc">Several noble families fight for control of the mythical land of Westeros.</string>
+    <string name="bb">Breaking Bad</string>
+    <string name="bbDesc">A chemistry teacher diagnosed with a terminal lung cancer, teams up with his former student, Jesse Pinkman, to cook and sell crystal meth.</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_my_series">MySeriesActivity</string>
+</resources>
