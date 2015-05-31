@@ -15,6 +15,17 @@
         android:background="@drawable/plus"
         android:layout_gravity="right"
         android:onClick="sendToMySeries"
+        android:visibility="visible"
+        />
+
+    <ImageButton
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:id="@+id/butrem"
+        android:background="@drawable/rem"
+        android:layout_gravity="right"
+        android:onClick="sendToMySeries"
+        android:visibility="gone"
         />
 
     <TextView

@@ -45,6 +45,8 @@ public class DetailActivity extends ActionBarActivity implements list{
         else
         {
             MySeriesList.remove(seriesTitle);
+            Intent intentToMySeries = new Intent(this,MySeriesActivity.class);
+            startActivity(intentToMySeries);
         }
 
     }
@@ -99,8 +101,11 @@ public class DetailActivity extends ActionBarActivity implements list{
                     ((TextView) rootView.findViewById(R.id.detail_text)).setText(seriesStr);
                 }
                 else {
-                    ImageButton b = (ImageButton) rootView.findViewById(R.id.but);
-                    b.setBackgroundResource(R.drawable.rem);
+                    //Toast.makeText(getActivity(), "sad", Toast.LENGTH_SHORT).show();
+                    ImageButton bp = (ImageButton) rootView.findViewById(R.id.but);
+                    bp.setVisibility(View.GONE);
+                    ImageButton br = (ImageButton) rootView.findViewById(R.id.butrem);
+                    br.setVisibility(View.VISIBLE);
                     ((TextView) rootView.findViewById(R.id.detail_text)).setText(seriesStr);
                 }
             }
