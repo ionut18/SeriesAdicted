@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -80,15 +81,26 @@ public class MySeriesActivity extends ActionBarActivity {
                 String seriesTitle = intentToMySeries.getStringExtra(Intent.EXTRA_TEXT);
                 if(!MySeriesList.contains(seriesTitle))
                     MySeriesList.add(seriesTitle);
+                else
+                    MySeriesList.remove(seriesTitle);
             }
 
-            ArrayAdapter<String> myListAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_series,
+            final ArrayAdapter<String> myListAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_series,
                     R.id.list_item_series_textview, MySeriesList);
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            TextView myTextView = (TextView) rootView.findViewById(R.id.textView);
+            final TextView myTextView = (TextView) rootView.findViewById(R.id.textView);
             myTextView.setText("My Series");
-            ListView mySeriesListView = (ListView) rootView.findViewById(R.id.ListViewSeries);
+            final ListView mySeriesListView = (ListView) rootView.findViewById(R.id.ListViewSeries);
             mySeriesListView.setAdapter(myListAdapter);
+            mySeriesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                    String series = myListAdapter.getItem(position);
+                    Intent sendToDetail = new Intent(getActivity(), DetailActivity.class).putExtra(Intent.EXTRA_TEXT, series);
+                    startActivity(sendToDetail);
+                }
+
+            });
 
             return rootView;
         }

@@ -37,6 +37,7 @@ public class SeriesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String series = seriesAdapter.getItem(position);
+                series = series.substring(0,series.indexOf("\n"));
                 Intent sendToDetail = new Intent(getActivity(), DetailActivity.class).putExtra(Intent.EXTRA_TEXT,series);
                 startActivity(sendToDetail);
             }

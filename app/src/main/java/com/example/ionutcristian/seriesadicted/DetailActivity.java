@@ -35,7 +35,7 @@ public class DetailActivity extends ActionBarActivity implements list{
     }
 
     public void sendToMySeries(View v) {
-        String seriesTitle = seriesStr.substring(0,seriesStr.indexOf("\n"));
+        String seriesTitle = seriesStr;
         if(!MySeriesList.contains(seriesTitle))
         {
             MySeriesList.add(seriesTitle);
@@ -45,7 +45,7 @@ public class DetailActivity extends ActionBarActivity implements list{
         else
         {
             MySeriesList.remove(seriesTitle);
-            Intent intentToMySeries = new Intent(this,MySeriesActivity.class);
+            Intent intentToMySeries = new Intent(this,MySeriesActivity.class).putExtra(Intent.EXTRA_TEXT, seriesTitle);
             startActivity(intentToMySeries);
         }
 
@@ -91,17 +91,17 @@ public class DetailActivity extends ActionBarActivity implements list{
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-
             View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
             Intent intent = getActivity().getIntent();
             if(intent != null && intent.hasExtra(Intent.EXTRA_TEXT))
             {
                 seriesStr = intent.getStringExtra(Intent.EXTRA_TEXT);
-                if(!MySeriesList.contains(seriesStr)) {
+                String seriesTitle = seriesStr;//.substring(0,seriesStr.indexOf("\n"));
+
+                if(!MySeriesList.contains(seriesTitle)) {
                     ((TextView) rootView.findViewById(R.id.detail_text)).setText(seriesStr);
                 }
                 else {
-                    //Toast.makeText(getActivity(), "sad", Toast.LENGTH_SHORT).show();
                     ImageButton bp = (ImageButton) rootView.findViewById(R.id.but);
                     bp.setVisibility(View.GONE);
                     ImageButton br = (ImageButton) rootView.findViewById(R.id.butrem);
@@ -110,19 +110,6 @@ public class DetailActivity extends ActionBarActivity implements list{
                 }
             }
             return rootView;
-
-//Intent intent = getActivity().getIntent();
-//        if(intent != null && intent.hasExtra(Intent.EXTRA_TEXT))
-//        {
-//            seriesStr = intent.getStringExtra(Intent.EXTRA_TEXT);
-//            ((TextView) findViewById(R.id.detail_text)).setText(seriesStr);
-//        }
-//
-//        if(MySeriesList.contains(seriesStr)) {
-//            ImageButton b = (ImageButton) R.layout.fragment_detail.;
-//            b.setBackgroundResource(R.drawable.rem);
-//        }
-//        View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
         }
     }

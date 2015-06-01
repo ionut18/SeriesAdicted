@@ -77,29 +77,4 @@ public class MainActivity extends ActionBarActivity {
         // The activity is about to be destroyed.
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    /*public static class SeriesFragment extends Fragment {
-
-        public SeriesFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            ArrayList<String> listaSeriale = new ArrayList<String>();
-            listaSeriale.add("Breaking bad");
-            listaSeriale.add("Californication");
-            listaSeriale.add("Game of thrones");
-            ArrayAdapter<String> seriesAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_series, R.id.list_item_series_textview,
-                    listaSeriale);
-
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            ListView listView = (ListView) rootView.findViewById(R.id.ListViewSeries);
-            listView.setAdapter(seriesAdapter);
-
-            return rootView;
-        }
-    }*/
 }
