@@ -6,21 +6,54 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.ionutcristian.seriesadicted.data.SeriesDataBase;
+
 
 public class MainActivity extends ActionBarActivity {
 
     private final String LOG_TAG = MainActivity.class.getSimpleName();
 
+    SeriesDataBase sdb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.v(LOG_TAG, "in onCreate");
+
+//        sdb.addPopularSeries("Got", 101, "Bataie", "ruleaza", false);
+//        sdb.addPopularSeries("Go1t", 102, "Batvaie", "rusleaza", false);
+//        sdb.addPopularSeries("Got2", 103, "Batsaie", "rulaseaza", true);
+//        sdb.addPopularSeries("G4ot", 104, "Batasie", "rulfseaza", false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//        sdb = new SeriesDataBase(this);
+//        try {
+//            sdb.createDatabase();
+//        } catch (IOException ioe) {
+//            throw new Error("Unable to create database");
+//        }
+//        try {
+//            sdb.openDatabase();
+//        }catch(SQLException sqle){
+//            try {
+//                throw sqle;
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new SeriesFragment())
                     .commit();
         }
+        /*Cursor c = sdb.getPopularSeriers();
+        Context context = this;
+        CharSequence text = c.getString(1);
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();*/
     }
 
 

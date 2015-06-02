@@ -74,8 +74,6 @@ public class MySeriesActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             Intent intentToMySeries = getActivity().getIntent();
-            //String machia =  MySeriesList.toString();
-            //Toast.makeText(getActivity(), machia, Toast.LENGTH_SHORT).show();
             if(intentToMySeries != null && intentToMySeries.hasExtra(Intent.EXTRA_TEXT))
             {
                 String seriesTitle = intentToMySeries.getStringExtra(Intent.EXTRA_TEXT);

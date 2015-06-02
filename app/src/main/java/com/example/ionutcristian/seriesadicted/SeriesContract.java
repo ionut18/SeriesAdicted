@@ -17,6 +17,7 @@ public class SeriesContract {
     public static final String PATH_POPULARS = "populars";
     public static final String PATH_DETAIL = "details";
 
+
     public static final class PopularsEntry implements BaseColumns {
 
         public static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_POPULARS).build();
@@ -66,7 +67,7 @@ public class SeriesContract {
 
         public static final String COLUMN_IMDB = "imdb";
 
-        public static Uri buildPopularUri(long id) {
+        public static Uri buildDetailUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
         }
     }

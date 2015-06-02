@@ -27,6 +27,8 @@ public class SeriesFragment extends Fragment {
         listaSeriale.add("Californication \n   A self-loathing, alcoholic writer attempts to repair his...");
         listaSeriale.add("Game of thrones \n   Several noble families fight for control of the mythical...");
         listaSeriale.add("Breaking bad \n   A chemistry teacher diagnosed with a terminal lung cancer...");
+        listaSeriale.add("Better call Saul \n   The trials and tribulations of criminal lawyer, Saul Goodman...");
+        listaSeriale.add("Dexter \n   A Miami police forensics expert moonlights as a serial killer of criminals...");
         final ArrayAdapter<String> seriesAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_series, R.id.list_item_series_textview,
                 listaSeriale);
 
