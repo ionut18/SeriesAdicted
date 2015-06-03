@@ -17,12 +17,16 @@ import java.util.ArrayList;
  */
 public class SeriesFragment extends Fragment {
 
+    public SeriesDataBase db;
+
     public SeriesFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        db = new SeriesDataBase(this);
         ArrayList<String> listaSeriale = new ArrayList<String>();
         listaSeriale.add("Californication \n   A self-loathing, alcoholic writer attempts to repair his...");
         listaSeriale.add("Game of thrones \n   Several noble families fight for control of the mythical...");

@@ -6,8 +6,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.ionutcristian.seriesadicted.data.SeriesDataBase;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,10 +16,6 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-//        sdb.addPopularSeries("Got", 101, "Bataie", "ruleaza", false);
-//        sdb.addPopularSeries("Go1t", 102, "Batvaie", "rusleaza", false);
-//        sdb.addPopularSeries("Got2", 103, "Batsaie", "rulaseaza", true);
-//        sdb.addPopularSeries("G4ot", 104, "Batasie", "rulfseaza", false);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -40,6 +34,15 @@ public class MainActivity extends ActionBarActivity {
 //                e.printStackTrace();
 //            }
 //        }
+//        sdb.addPopularSeries("Got", 101, "Bataie", "ruleaza", false);
+//        sdb.addPopularSeries("Go1t", 102, "Batvaie", "rusleaza", false);
+//        sdb.addPopularSeries("Got2", 103, "Batsaie", "rulaseaza", true);
+//        sdb.addPopularSeries("G4ot", 104, "Batasie", "rulfseaza", false);
+
+        sdb = new SeriesDataBase(this);
+        //sdb.insertSeries(001,"Game of Thrones", "Piticu o ", "Piticu o fute pe Blonda", "Hisrorycal", "HBO", "RUNNING", false, "7", "8", "http://imdb.com");
+        //ArrayList arrayList = sdb.getAllSeries();
+        //ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, arrayList);
 
 
         if (savedInstanceState == null) {
