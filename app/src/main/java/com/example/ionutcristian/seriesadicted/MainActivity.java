@@ -1,8 +1,8 @@
 package com.example.ionutcristian.seriesadicted;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -19,31 +19,19 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        sdb = new SeriesDataBase(this);
-//        try {
-//            sdb.createDatabase();
-//        } catch (IOException ioe) {
-//            throw new Error("Unable to create database");
-//        }
-//        try {
-//            sdb.openDatabase();
-//        }catch(SQLException sqle){
-//            try {
-//                throw sqle;
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        sdb.addPopularSeries("Got", 101, "Bataie", "ruleaza", false);
-//        sdb.addPopularSeries("Go1t", 102, "Batvaie", "rusleaza", false);
-//        sdb.addPopularSeries("Got2", 103, "Batsaie", "rulaseaza", true);
-//        sdb.addPopularSeries("G4ot", 104, "Batasie", "rulfseaza", false);
-
         sdb = new SeriesDataBase(this);
-        //sdb.insertSeries(001,"Game of Thrones", "Piticu o ", "Piticu o fute pe Blonda", "Hisrorycal", "HBO", "RUNNING", false, "7", "8", "http://imdb.com");
-        //ArrayList arrayList = sdb.getAllSeries();
-        //ArrayAdapter arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, arrayList);
 
+        sdb.insertSeries(1,"Game of Thrones", "Several noble families fight for control of the mythical... ",
+                "Several noble families fight for control of the mythical land of Westeros.",
+                "Action", "HBO", "RUNNING", false, "31.05.2015 - Hardhome", "07.06.2015 - The Dance of Dragons", "http://www.imdb.com/title/tt0944947/", 9.5);
+
+        sdb.insertSeries(2,"Californication", "A self-loathing, alcoholic writer attempts to repair his... ",
+                "A self-loathing, alcoholic writer attempts to repair his damaged relationships with his daughter and her mother while combating sex addiction, a budding drug problem, and the seeming inability to avoid making bad decisions.",
+                "Comedy", "SHOWTIME", "ENDED", false, "29.06.2014 - Grace", "Ended", "http://www.imdb.com/title/tt0904208/", 8.4);
+
+        sdb.insertSeries(3,"Breaking Bad", "A chemistry teacher diagnosed with a terminal lung cancer... ",
+                "A chemistry teacher diagnosed with a terminal lung cancer, teams up with his former student, Jesse Pinkman, to cook and sell crystal meth.",
+                "Action", "AMC", "ENDED", false, "29.09.2013 - Felina", "Ended", "http://www.imdb.com/title/tt0903747/", 9.5);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -79,36 +67,37 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_toMySeries) {
+            Intent intentToMySeries = new Intent(this,MySeriesActivity.class);
+            startActivity(intentToMySeries);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onStart() {
-        Log.v(LOG_TAG, "in on Start");
         super.onStart();
         // The activity is about to become visible.
     }
     @Override
     protected void onResume() {
-        Log.v(LOG_TAG, "in on Resume");
         super.onResume();
         // The activity has become visible (it is now "resumed").
     }
     @Override
     protected void onPause() {
-        Log.v(LOG_TAG, "in on Pause");
         super.onPause();
         // Another activity is taking focus (this activity is about to be "paused").
     }
     @Override
     protected void onStop() {
-        Log.v(LOG_TAG, "in on Stop");
         super.onStop();
         // The activity is no longer visible (it is now "stopped")
     }
     @Override
     protected void onDestroy() {
-        Log.v(LOG_TAG, "in on Destroy");
         super.onDestroy();
         // The activity is about to be destroyed.
     }

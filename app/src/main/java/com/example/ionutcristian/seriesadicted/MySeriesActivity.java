@@ -125,7 +125,11 @@ public class MySeriesActivity extends ActionBarActivity {
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
             shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_TEXT,MySeriesList + "\n" + mySeries_hashtag);
+            String hello = "Hello. These are my Series that I am watching: \n";
+            String str = "";
+            for(int i = 0; i < MySeriesList.size(); i++)
+                str += MySeriesList.get(i) + "\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, hello + str + mySeries_hashtag);
             return shareIntent;
         }
     }
