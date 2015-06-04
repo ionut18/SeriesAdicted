@@ -23,30 +23,22 @@ public class MainActivity extends ActionBarActivity {
 
         sdb.insertSeries(1,"Game of Thrones", "Several noble families fight for control of the mythical... ",
                 "Several noble families fight for control of the mythical land of Westeros.",
-                "Action", "HBO", "RUNNING", false, "31.05.2015 - Hardhome", "07.06.2015 - The Dance of Dragons", "http://www.imdb.com/title/tt0944947/", 9.5);
+                "Action", "HBO", "RUNNING", 0, "31.05.2015 - Hardhome", "07.06.2015 - The Dance of Dragons", "http://www.imdb.com/title/tt0944947/", 9.5);
 
         sdb.insertSeries(2,"Californication", "A self-loathing, alcoholic writer attempts to repair his... ",
                 "A self-loathing, alcoholic writer attempts to repair his damaged relationships with his daughter and her mother while combating sex addiction, a budding drug problem, and the seeming inability to avoid making bad decisions.",
-                "Comedy", "SHOWTIME", "ENDED", false, "29.06.2014 - Grace", "Ended", "http://www.imdb.com/title/tt0904208/", 8.4);
+                "Comedy", "SHOWTIME", "ENDED", 0, "29.06.2014 - Grace", "Ended", "http://www.imdb.com/title/tt0904208/", 8.4);
 
         sdb.insertSeries(3,"Breaking Bad", "A chemistry teacher diagnosed with a terminal lung cancer... ",
                 "A chemistry teacher diagnosed with a terminal lung cancer, teams up with his former student, Jesse Pinkman, to cook and sell crystal meth.",
-                "Action", "AMC", "ENDED", false, "29.09.2013 - Felina", "Ended", "http://www.imdb.com/title/tt0903747/", 9.5);
+                "Action", "AMC", "ENDED", 0, "29.09.2013 - Felina", "Ended", "http://www.imdb.com/title/tt0903747/", 9.5);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new SeriesFragment())
                     .commit();
         }
-        /*Cursor c = sdb.getPopularSeriers();
-        Context context = this;
-        CharSequence text = c.getString(1);
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();*/
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -62,11 +54,6 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         if (id == R.id.action_toMySeries) {
             Intent intentToMySeries = new Intent(this,MySeriesActivity.class);
             startActivity(intentToMySeries);
@@ -76,7 +63,7 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+        @Override
     protected void onStart() {
         super.onStart();
         // The activity is about to become visible.

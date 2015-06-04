@@ -11,13 +11,14 @@ import java.util.ArrayList;
 public class SeriesDataBase extends SQLiteOpenHelper {
 
     Context c;
-    public static final String DATABASE_NAME = "srdb.db";
+    public static final String DATABASE_NAME = "serdb.db";
     public static final String CONTACTS_TABLE_NAME = "Series";
     public static final String COLUMN_ID = "_ID";
     public static final String COLUMN_TITLE = "TITLE";
     public static final String COLUMN_SHORT_DESC = "SH_DESC";
     public static final String COLUMN_LONG_DESC = "LG_DESC";
     public static final String COLUMN_GENRE = "GENRE";
+    public static final String COLUMN_CHECK = "CHECKED";
     public static final String COLUMN_COMPANY = "COMPANY";
     public static final String COLUMN_LAST_EPISODE = "LAST_EP";
     public static final String COLUMN_NEXT_EPISODE = "NEXT_EP";
@@ -34,7 +35,7 @@ public class SeriesDataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         final String SQL_CREATE_SERIES_TABLE = "CREATE TABLE Series (_ID INTEGER PRIMARY KEY, TITLE TEXT NOT NULL, SH_DESC TEXT NOT NULL, " +
-                "LG_DESC TEXT NOT NULL, GENRE TEXT NOT NULL, COMPANY TEXT NON NULL, STATUS TEXT NOT NULL, CHECKED BOOLEAN, " +
+                "LG_DESC TEXT NOT NULL, GENRE TEXT NOT NULL, COMPANY TEXT NON NULL, STATUS TEXT NOT NULL, CHECKED INTEGER, " +
                 "LAST_EP TEXT NOT NULL, NEXT_EP TEXT NOT NULL, IMDB TEXT NOT NULL, GRADE DOUBLE);";
 
         db.execSQL(SQL_CREATE_SERIES_TABLE);
@@ -48,7 +49,7 @@ public class SeriesDataBase extends SQLiteOpenHelper {
     }
 
     public boolean insertSeries (int id, String title, String sht_desc, String lng_desc, String genre,  String company,
-                                 String stat, boolean chk, String last_ep, String next_ep, String imdb, double grade)
+                                 String stat, int chk, String last_ep, String next_ep, String imdb, double grade)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -82,7 +83,7 @@ public class SeriesDataBase extends SQLiteOpenHelper {
     }
 
     public boolean updateSeries (int id, String title, String sht_desc, String lng_desc, String genre,  String company,
-                                 String stat, boolean chk, String last_ep, String next_ep, String imdb, double grade)
+                                 String stat, int chk, String last_ep, String next_ep, String imdb, double grade)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -98,7 +99,16 @@ public class SeriesDataBase extends SQLiteOpenHelper {
         contentValues.put("NEXT_EP", next_ep);
         contentValues.put("IMDB", imdb);
         contentValues.put("GRADE", grade);
-        db.update("Series", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        db.update("Series", contentValues, "TITLE = ? ", new String[] { title } );
+        return true;
+    }
+
+    public boolean updateCheck (String title, int chk)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("CHECKED", chk);
+        db.update("Series", contentValues, "TITLE = ? ", new String[] { title } );
         return true;
     }
 
@@ -255,6 +265,21 @@ public class SeriesDataBase extends SQLiteOpenHelper {
 
         while(res.isAfterLast() == false){
             array_list.add(res.getString(res.getColumnIndex(COLUMN_GRADE)));
+            res.moveToNext();
+        }
+        return array_list;
+    }
+
+    public ArrayList<Integer> getCheck()
+    {
+        ArrayList<Integer> array_list = new ArrayList<Integer>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from Series", null );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            array_list.add(res.getInt(res.getColumnIndex(COLUMN_CHECK)));
             res.moveToNext();
         }
         return array_list;

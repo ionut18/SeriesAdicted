@@ -32,9 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-        <provider
-            android:authorities="com.example.ionutcristian.sunshine.app"
-            android:name=".SeriesProvider" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="activity_settings"
+            android:parentActivityName="com.example.ionutcristian.seriesadicted.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ionutcristian.seriesadicted.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
