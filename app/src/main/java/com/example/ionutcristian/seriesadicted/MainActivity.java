@@ -11,6 +11,8 @@ public class MainActivity extends ActionBarActivity {
 
     private final String LOG_TAG = MainActivity.class.getSimpleName();
 
+    private Menu mymenu;
+
     SeriesDataBase sdb;
 
     @Override
@@ -42,6 +44,7 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        mymenu = menu;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -63,7 +66,7 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-        @Override
+    @Override
     protected void onStart() {
         super.onStart();
         // The activity is about to become visible.

@@ -6,4 +6,9 @@
     <item android:id="@+id/action_toMySeries"
         android:title="My Series"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_refresh"
+        android:showAsAction="ifRoom"
+        android:title="Refresh"
+        android:icon="@drawable/ic_action_refresh"></item>
 </menu>
